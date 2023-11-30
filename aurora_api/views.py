@@ -122,7 +122,7 @@ class ModelResponseAPI(APIView):
     bag = ''
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data) 
-        
+        print('test----------------')
         if serializer.is_valid():
             msg  = serializer.data['msg'] if serializer.data['msg'] is not None else 'Progress Chat'
             key = serializer.data['session_key']

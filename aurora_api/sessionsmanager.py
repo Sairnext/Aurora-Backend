@@ -17,6 +17,7 @@ class SessionManager:
         
     def create_session(self):
         self._session.create()
+        print('test3----------------')
         seasoning = ModelIngredients(self.origin).extract_data()
         for k in self.keys:
                 self._session[k] = seasoning[k]

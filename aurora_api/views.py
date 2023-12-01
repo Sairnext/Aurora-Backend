@@ -138,6 +138,7 @@ class ModelResponseAPI(APIView):
             key = session.session_key
             session['session_key'] = key
             session.save()
+            print('test2----------------')
             #Create custom session here
  
         else:

@@ -12,6 +12,7 @@ import string
 from rest_framework.response import Response
 import pickle
 from django.conf import settings
+from django.db import connection
 from .models import Models, Customer, AppCredentials, Chat
 from .prediction_model import NeuralNet
 from .nltk_utils import bag_of_words, tokenize
@@ -21,6 +22,7 @@ from .responsemanager import get_response_dates, get_response_booking, get_respo
 
 class ModelIngredients:
     def __init__(self, origin):
+        print('database: ', connection.vendor)
         self.origin = origin
         self.dc = {}
   

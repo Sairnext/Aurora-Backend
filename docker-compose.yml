@@ -16,9 +16,15 @@ services:
         - SMTP_PASSWORD=fntqybkejdfuwida
     volumes:
         - ./:/app
+    networks:
+      - redis_network
 
   redis:
     image: redis:6
+    ports:
+      - "6379:6379"
+    networks:
+      - redis_network
 
   nginx:
     image: nginx:latest
@@ -26,3 +32,8 @@ services:
       - "80:80"
     volumes:
       - /etc/nginx/conf.d/django.conf:/etc/nginx/conf.d/django.conf:ro
+    networks:
+      - redis_network
+
+networks:
+  redis_network:

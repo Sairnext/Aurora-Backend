@@ -67,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'aurora.utils.DisableCSRF'
 ]
 
 
@@ -154,16 +155,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Use database-backed sessions
 SESSION_COOKIE_NAME = 'sessionid'
-SESSION_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 3600
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 #'django.contrib.sessions.backends.cache'
 SESSION_COOKIE_SAMESITE = None
-SESSION_COOKIE_DOMAIN = 'api.eazibots.com'
+# SESSION_COOKIE_DOMAIN = 'api.eazibots.com'
 
 
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_SAMESITE = 'None'
 CSRF_TRUSTED_ORIGINS = ['https://eac946ea7313489f9f0055b8035f47bb.vfs.cloud9.eu-west-2.amazonaws.com',
                         'https://258a482125664d88ad94800ecbefa0af.vfs.cloud9.eu-west-2.amazonaws.com',
@@ -212,8 +213,8 @@ CORS_ORIGIN_WHITELIST = [
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        #"LOCATION": "redis://@127.0.0.1:6379/1",
-        "LOCATION": "redis://:Aurora24@172.31.40.69:6379/1",
+        "LOCATION": "redis://@redis:6379",
+#         "LOCATION": "redis://:Aurora24@172.31.40.69:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }

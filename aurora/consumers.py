@@ -17,7 +17,6 @@ class ChatConsumer(WebsocketConsumer):
             request_text = json.loads(text_data)
             processor = WebsocketProcessor()
 
-            print('Received text', request_text)
             iterator = processor.process(request_text)
 
             for message in iterator:

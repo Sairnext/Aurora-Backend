@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
 
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,6 +73,7 @@ MIDDLEWARE = [
 
 
 ROOT_URLCONF = 'aurora.urls'
+ASGI_APPLICATION = 'aurora.asgi.application'
 
 TEMPLATES = [
     {
@@ -91,7 +93,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'aurora.wsgi.application'
+# WSGI_APPLICATION = 'aurora.wsgi.application'
 
 
 # Database

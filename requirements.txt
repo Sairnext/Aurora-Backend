@@ -120,3 +120,5 @@ zope.interface==5.5.2
 langchain==0.0.343
 faiss-cpu==1.7.4
 wikipedia==1.4.0
+tiktoken==0.5.2
+channels[daphne]==4.0.0
